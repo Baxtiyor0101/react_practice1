@@ -1,23 +1,37 @@
-import "./style/styles.css"
-import Counter from "./components/Counter";
-import InputVal from "./components/InputVal";
-import ToggleBtn from "./components/ToggleBtn";
+import React from 'react';
+import Signin from './Signin';
+import SignUp from './SignUp';
+
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            active:true
+        };
+    }
 
 
-function App(){
-    
-    
-    return (
-        <>
-           <div className="app w-50 mx-auto">
-               <Counter/>
-               <hr /> 
-               <InputVal/>
-               <ToggleBtn/>
+     render() {
+        const getSave = () =>{
+            this.setState({active: !this.state.active})
+            }
+            // console.log(this.state.active);
+        return (
+            <div>
+               
+
+               {
+                   this.state.active?
+                    <SignUp />
+                   : <Signin />
+                }
+                 <button onClick={getSave} >{this.state.active? 'Sign in':'Sign up'}</button>
+
                 
-            </div>
-           
-        </>
-     )
+             </div>
+        );
+    }
 }
+
+
 export default App;
