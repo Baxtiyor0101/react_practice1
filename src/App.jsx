@@ -1,34 +1,23 @@
 import React from 'react';
-import Signin from './Signin';
-import SignUp from './SignUp';
+import { Hooks } from './Hooks';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            active:true
+        count:0,
         };
     }
 
-
-     render() {
-        const getSave = () =>{
-            this.setState({active: !this.state.active})
-            }
-            // console.log(this.state.active);
+    render() {
         return (
-            <div>
-               
-
-               {
-                   this.state.active?
-                    <SignUp />
-                   : <Signin />
-                }
-                 <button onClick={getSave} >{this.state.active? 'Sign in':'Sign up'}</button>
-
-                
-             </div>
+            <div style={{flex:1}}>
+                <h1>Class</h1>
+                <h1>{this.state.count}</h1>
+                <button onClick={()=>this.setState({count:this.state.count+1})}>+</button>
+                <button onClick={()=>this.setState({count:this.state.count-1})}>-</button>
+                <Hooks count={this.state.count} />
+            </div>
         );
     }
 }
