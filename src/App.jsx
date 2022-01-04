@@ -1,26 +1,19 @@
-import React from 'react';
-import { Hooks } from './Hooks';
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        count:0,
-        };
-    }
+import React from 'react'
+import Movie from './components/Movie';
+import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
 
-    render() {
-        return (
-            <div style={{flex:1}}>
-                <h1>Class</h1>
-                <h1>{this.state.count}</h1>
-                <button onClick={()=>this.setState({count:this.state.count+1})}>+</button>
-                <button onClick={()=>this.setState({count:this.state.count-1})}>-</button>
-                <Hooks count={this.state.count} />
-            </div>
-        );
-    }
+export const App = () => {
+    return (
+        <div>
+            <h1>hello</h1>
+            <Navbar />
+            <Sidebar />
+            <Movie />
+
+        </div>
+    )
 }
-
 
 export default App;
